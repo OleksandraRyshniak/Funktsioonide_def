@@ -1,6 +1,4 @@
 #1
-
-
 def arithmetic(arv1:float, arv2:float, tehe:str)->any:
     """Lihtne kalkulaator
     + - liitmine
@@ -68,14 +66,14 @@ def season(kuu_number:int) -> str:
     :param int kuu_number : Sisend kasutajalt
     :rtype: var märgib tüüpi str
     """
-    if kuu_number==1 or 2 or 12:
+    if kuu_number in [12, 1, 2]:
        kuu="talv"
-    elif kuu_number==3 or 4 or 5:
+    elif kuu_number in [3, 4, 5]:
        kuu="kevad"
-    elif kuu_number==6 or 7 or 8:
-       kuu2="suvi"
+    elif kuu_number in [6,7,8]:
+       kuu="suvi"
     else:
-       kuu3="sügis"
+       kuu="sügis"
     return kuu
 
 
@@ -123,7 +121,20 @@ def is_prime(arv:int)->bool:
 
 #7
 def date(päev:int, kuu:int, aasta:int) -> bool:
+    """ Date
+    Tagastab tõene, kui objekt on kalendris, False, kui mitte.
+    :param int päev, Sisend kasutajalt
+    :param int kuu, Sisend kasutajalt
+    :param int aasta, Sisend kasutajalt
+    :rtype bool tagastab tõeväärsuses formaadis tulemus
     """
-    """
+    if aasta<1 or kuu<1 or päev<1:
+        return False
+    kalender=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if kuu%4==0:
+        kalender[1]=29
+    return päev<=kalender[kuu-1]
+
+
 
 
