@@ -126,3 +126,4 @@ def date(päev:int, kuu:int, aasta:int) -> bool:
     """
     """
 
+
